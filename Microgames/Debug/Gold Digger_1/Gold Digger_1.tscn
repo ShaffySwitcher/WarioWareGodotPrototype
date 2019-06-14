@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Microgames/Debug/Gold Digger_1/Hand.gd" type="Script" id=1]
+[ext_resource path="res://Microgames/Debug/Gold Digger_1/Gold Digger sprite.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 968.005, 526.671, 0, 0, 0, 0, 197.895, 527.576, 0, 0, 0, 0, 198.032, 527.474, 0, 0, 0, 0, 968.005, 527.185 )
+}
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.325333, -105.435, 0, 0, 0, 0, -0.705887, -168.923 )
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20.8448, 10 )
+
+[node name="Gold Digger_1" type="Node"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Path2D-Hand" type="Path2D" parent="."]
+position = Vector2( 1010.57, 611.566 )
+rotation = 3.14159
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D-Hand"]
+position = Vector2( 567.204, 528.739 )
+rotation = 3.14013
+offset = 2.0
+rotate = false
+script = ExtResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="Path2D-Hand/PathFollow2D"]
+position = Vector2( 88.8725, 941.141 )
+scale = Vector2( 3.84, 3.84 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D-Hand/PathFollow2D/Path2D"]
+position = Vector2( 0.257339, -106.007 )
+rotation = -1.56966
+rotate = false
+loop = false
+
+[node name="Hand" type="Node2D" parent="Path2D-Hand/PathFollow2D/Path2D/PathFollow2D"]
+position = Vector2( -27.1048, -0.145828 )
+rotation = 1.56966
+
+[node name="Hand" type="Sprite" parent="Path2D-Hand/PathFollow2D/Path2D/PathFollow2D/Hand"]
+editor/display_folded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1, 62, 66, 66 )
+
+[node name="Finger" type="Sprite" parent="Path2D-Hand/PathFollow2D/Path2D/PathFollow2D/Hand/Hand"]
+position = Vector2( -11.242, -53.8434 )
+scale = Vector2( 0.842217, 0.820701 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 112, 62, 15, 66 )
+
+[node name="Area2D" type="Area2D" parent="Path2D-Hand/PathFollow2D/Path2D/PathFollow2D/Hand"]
+editor/display_folded = true
+rotation = 2.32831e-010
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D-Hand/PathFollow2D/Path2D/PathFollow2D/Hand/Area2D"]
+polygon = PoolVector2Array( -16.7132, -27.2277, -4.84422, -27.537, -5.5907, -38.3178, -6.75459, -61.5122, -6.83505, -81.0028, -16.8525, -81.0174, -17.4419, -50.2036, -17.4629, -35.8308 )
+
+[node name="Nose" type="Node2D" parent="."]
+position = Vector2( 513.221, 110.729 )
+
+[node name="Sprite" type="Sprite" parent="Nose"]
+scale = Vector2( 4.32306, 4.32306 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 54, 51 )
+
+[node name="Middle-nose" type="Area2D" parent="Nose"]
+editor/display_folded = true
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nose/Middle-nose"]
+position = Vector2( 0.630249, 87.6047 )
+shape = SubResource( 4 )
