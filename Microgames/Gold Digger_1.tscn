@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Microgames/Hand.gd" type="Script" id=1]
+[ext_resource path="res://Microgames/delete-anim-script.gd" type="Script" id=2]
+[ext_resource path="res://sprites/Microgames/Gold Digger/Gold Digger sprite.png" type="Texture" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.136719, 0.238983, 0, 0, 0, 0, 0.257339, -106.007 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Moving"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 521.493, 636.105 ), Vector2( 129.838, 636.105 ), Vector2( 901.528, 636.105 ) ]
+}
+
+[node name="Gold Digger_1" type="Node"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 234.706, 636.105 )
+scale = Vector2( 3.84, 3.84 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 0.136719, 0.238983 )
+rotation = -1.56966
+loop = false
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
+anims/Moving = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="Hand" type="Node2D" parent="Path2D/PathFollow2D"]
+editor/display_folded = true
+position = Vector2( 0.238846, -0.137009 )
+rotation = 1.56966
+
+[node name="Hand" type="Sprite" parent="Path2D/PathFollow2D/Hand"]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 1, 62, 66, 66 )
+
+[node name="Finger" type="Sprite" parent="Path2D/PathFollow2D/Hand/Hand"]
+position = Vector2( -11.242, -53.8434 )
+scale = Vector2( 0.842217, 0.820701 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 112, 62, 15, 66 )

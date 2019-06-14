@@ -1,0 +1,1 @@
+get_node(AnimationPlayer.play("HandAnimation"))
