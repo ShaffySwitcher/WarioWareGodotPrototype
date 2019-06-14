@@ -1,1 +1,1 @@
-# WarioWareGodotPrototype
+# Warioware Godot Prototype
