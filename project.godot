@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="WarioWare Fan Game test"
-run/main_scene="res://Microgames/Gold Digger_1.tscn"
 config/icon="res://icon.png"
 
 [rendering]

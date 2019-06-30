@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gold Digger sprite.png-e968f5973107c5d9f832de64fb652a84.stex"
+path="res://.import/Gold Digger sprite.png-49ff6a3dd7b70aa94c972661f1d5b339.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Microgames/Debug/Gold Digger_1/Gold Digger sprite.png"
-dest_files=[ "res://.import/Gold Digger sprite.png-e968f5973107c5d9f832de64fb652a84.stex" ]
+source_file="res://sprites/Microgames/Gold Digger/Gold Digger sprite.png"
+dest_files=[ "res://.import/Gold Digger sprite.png-49ff6a3dd7b70aa94c972661f1d5b339.stex" ]
 
 [params]
 
